@@ -1,4 +1,5 @@
 "use client";
+import { useOAuthNaver } from "@/hooks/useOAuthNaver";
 import { convterObjectToArray } from "@/utils/convter";
 import { useParams, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -6,34 +7,23 @@ import React, { useEffect, useState } from "react";
 export default function page() {
   const searchParms = useSearchParams();
 
-  const [token, setToken] = useState();
-  const [user, setUser] = useState<NAVER_USER>();
+  const [token, setToken] = useState<String>();
+
+  const { accessToken, doneOpner, getMe } = useOAuthNaver();
 
   useEffect(() => {
     console.log(searchParms.get("code"));
   }, []);
 
   const getAcessToken = async () => {
-    const res = await fetch("/api/naver/access", {
-      method: "post",
-      body: JSON.stringify({
-        code: searchParms.get("code"),
-      }),
-    }).then((res) => res.json());
-
-    console.log(res);
-
-    setToken(res.access_token);
+    const access_token = await accessToken(searchParms.get("code")!);
+    setToken(access_token);
   };
 
   const getUserData = async () => {
-    const res = await fetch("/api/naver/user", {
-      method: "post",
-      body: JSON.stringify({
-        access_token: token,
-      }),
-    }).then((res) => res.json());
-    setUser(res.response);
+    const user = await getMe(token);
+
+    doneOpner(user!);
   };
 
   return (
@@ -48,13 +38,6 @@ export default function page() {
       <br />
 
       <p>유저</p>
-      {user &&
-        Object.keys(user).map((key) => (
-          <p>
-            {/* @ts-ignore */}
-            {key} : {user[key]}
-          </p>
-        ))}
     </div>
   );
 }

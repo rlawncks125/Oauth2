@@ -4,37 +4,54 @@ import { useParams, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 export default function page() {
-  const searchParms = useSearchParams();
-  const { doneOpner, accessToken, getMe } = useOAuthGitHub();
+  // const searchParms = useSearchParams();
 
-  const [userInfo, setUser] = useState<GitHub_User>();
+  // const { doneOpner, accessToken, getMe } = useOAuthGitHub();
+
+  const [userInfo, setUser] = useState<GOOGLE_USER>();
 
   const [token, setToken] = useState<string>();
 
   useEffect(() => {
-    console.log(searchParms.get("code"));
+    console.log(
+      new URLSearchParams(window.location.hash.substr(1)).get("access_token")
+    );
   }, []);
 
   const getAcessToken = async () => {
-    const access_token = await accessToken(searchParms.get("code")!);
-    setToken(access_token);
+    const access_token = new URLSearchParams(
+      window.location.hash.substr(1)
+    ).get("access_token");
+
+    console.log(access_token);
+    setToken(access_token!);
+
+    // const access_token = await accessToken(searchParms.get("code")!);
+    // setToken(access_token);
   };
 
   const getUserData = async () => {
-    const user = await getMe(token);
-
+    const user = (await fetch("/api/google/user", {
+      method: "post",
+      body: JSON.stringify({
+        access_token: token,
+      }),
+    }).then((res) => res.json())) as GOOGLE_USER;
     setUser(user);
+
+    // const user = await getMe(token);
+    // setUser(user);
   };
 
   const close = () => {
-    if (userInfo) doneOpner(userInfo);
+    // if (userInfo) doneOpner(userInfo);
   };
 
   return (
     <div>
       <div>
         <h1>1.</h1>
-        <p>code : {searchParms.get("code")}</p>
+        {/* <p>code : {searchParms.get("code")}</p> */}
       </div>
       <div>
         <h1>2.</h1>

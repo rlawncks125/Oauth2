@@ -54,3 +54,12 @@ interface NAVER_USER {
   name: String;
   birthday: String;
 }
+
+interface GOOGLE_USER {
+  id: String;
+  name: String;
+  given_name: String;
+  family_name: String;
+  picture: String;
+  locale: String;
+}

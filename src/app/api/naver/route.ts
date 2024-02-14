@@ -10,7 +10,6 @@ export async function GET(request: Request) {
   };
 
   const url = new URL("https://nid.naver.com/oauth2.0/authorize");
-  url.searchParams.append;
 
   convterObjectToArray(config).forEach((key) => {
     url.searchParams.append(key, config[key]!);

@@ -11,8 +11,6 @@ export async function POST(request: Request) {
     code,
   };
 
-  console.log(config);
-
   const res = await fetch(url, {
     method: "POST",
     headers: {

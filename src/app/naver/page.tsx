@@ -1,40 +1,47 @@
 "use client";
 
-import { useEffect } from "react";
+import { useOAuthNaver } from "@/hooks/useOAuthNaver";
+import { useEffect, useState } from "react";
 
 export default function page() {
-  useEffect(() => {
-    // fetch("/api/naver", {
-    //   method: "GET",
-    // })
-    //   .then((res) => res.text())
-    //   .then(console.log);
-    // github_authorize();
-  }, []);
+  const { authorize, user, refresh } = useOAuthNaver();
+  const [refreshToken, setRefreshToken] = useState<String>();
 
-  const openNaver = () => {
-    fetch("/api/naver", {
-      method: "GET",
-    })
-      .then((res) => res.json())
-      .then((res) => window.open(res.url, "_black", "noopener , noreferrer"));
+  const authorizeNaver = () => {
+    authorize();
   };
 
-  const refresh = () => {
-    fetch("/api/naver/refresh", {
-      method: "post",
-    })
-      .then((res) => res.json())
-      .then(console.log);
+  const onRefreshToken = () => {
+    console.log(refreshToken);
+
+    if (refreshToken) {
+      refresh(refreshToken);
+    }
   };
 
   return (
     <>
       <main>
-        <button onClick={openNaver}>open naver</button>
+        <button onClick={authorizeNaver}>open naver</button>
         <p>hi main</p>
         <p>asdasd</p>
-        <button onClick={refresh}>refresh</button>
+        <div>
+          <label htmlFor="refresh">refreshToken</label>
+          <input
+            className="border ml-2"
+            type="text"
+            name="refresh"
+            onChange={(e) => setRefreshToken(e.target.value)}
+          />
+        </div>
+        <button onClick={onRefreshToken}>refresh</button>
+        {user &&
+          Object.keys(user).map((key) => (
+            <p key={key}>
+              {/* @ts-ignore */}
+              {key} : {user[key]}
+            </p>
+          ))}
       </main>
     </>
   );

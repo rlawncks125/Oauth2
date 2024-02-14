@@ -8,7 +8,6 @@ export async function GET(request: Request) {
   };
 
   const url = new URL("https://github.com/login/oauth/authorize");
-  url.searchParams.append;
 
   convterObjectToArray(config).forEach((key) => {
     url.searchParams.append(key, config[key]!);

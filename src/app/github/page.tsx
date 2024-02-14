@@ -1,31 +1,29 @@
 "use client";
 
+import { useOAuthGitHub } from "@/hooks/useOAuthGitHub";
 import { useEffect } from "react";
 
 export default function page() {
-  useEffect(() => {
-    // fetch("/api/naver", {
-    //   method: "GET",
-    // })
-    //   .then((res) => res.text())
-    //   .then(console.log);
-    // github_authorize();
-  }, []);
+  const { authorize, user } = useOAuthGitHub();
 
   const openGithub = () => {
-    fetch("/api/github", {
-      method: "GET",
-    })
-      .then((res) => res.json())
-      .then((res) => window.open(res.url, "_black", "noopener , noreferrer"));
+    authorize();
   };
 
   return (
     <>
       <main>
         <button onClick={openGithub}>open github</button>
+
         <p>hi main</p>
         <p>asdasd</p>
+        {user &&
+          Object.keys(user).map((key) => (
+            <p key={key}>
+              {/* @ts-ignore */}
+              {key} : {user[key]}
+            </p>
+          ))}
       </main>
     </>
   );
