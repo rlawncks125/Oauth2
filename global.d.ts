@@ -4,6 +4,8 @@ namespace NodeJS {
     GITHUB_CLIENT_SECRETS: string;
     NAVER_CLIENT_ID: string;
     NAVER_CLIENT_SECRETS: string;
+    GOOGLE_CLIENT_ID: string;
+    GOOGLE_CLIENT_SECRETS: string;
   }
 }
 
