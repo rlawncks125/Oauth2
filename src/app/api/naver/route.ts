@@ -1,39 +1,22 @@
+import { convterObjectToArray } from "@/utils/convter";
+
 export async function GET(request: Request) {
-  return new Response("hi naver Get api", {
-    status: 200,
-  });
-}
+  const config = {
+    client_id: process.env.NAVER_CLIENT_ID,
+    redirect_uri: "http://localhost:3000/naver/callback",
+    response_type: "code",
 
-export async function POST(request: Request) {
-  console.log(request.body);
+    // redirect_uri: encodeURI("http://localhost:3000/naver/callback"),
+  };
+
+  const url = new URL("https://nid.naver.com/oauth2.0/authorize");
+  url.searchParams.append;
+
+  convterObjectToArray(config).forEach((key) => {
+    url.searchParams.append(key, config[key]!);
+  });
 
   return Response.json({
-    ok: true,
-    msg: "hi naver post pai",
-  });
-}
-
-export async function PUT(request: Request) {
-  console.log(request.body);
-
-  return Response.json({
-    ok: true,
-    msg: "hi naver put pai",
-  });
-}
-export async function PATCH(request: Request) {
-  console.log(request.body);
-
-  return Response.json({
-    ok: true,
-    msg: "hi naver patch pai",
-  });
-}
-export async function DELETE(request: Request) {
-  console.log(request.body);
-
-  return Response.json({
-    ok: true,
-    msg: "hi naver delete pai",
+    url,
   });
 }

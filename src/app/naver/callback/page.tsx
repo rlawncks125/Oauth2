@@ -1,4 +1,5 @@
 "use client";
+import { convterObjectToArray } from "@/utils/convter";
 import { useParams, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
@@ -6,14 +7,14 @@ export default function page() {
   const searchParms = useSearchParams();
 
   const [token, setToken] = useState();
-  const [user, setUser] = useState<GitHub_User>();
+  const [user, setUser] = useState<NAVER_USER>();
 
   useEffect(() => {
     console.log(searchParms.get("code"));
   }, []);
 
   const getAcessToken = async () => {
-    const res = await fetch("/api/github/access", {
+    const res = await fetch("/api/naver/access", {
       method: "post",
       body: JSON.stringify({
         code: searchParms.get("code"),
@@ -26,13 +27,13 @@ export default function page() {
   };
 
   const getUserData = async () => {
-    const res = await fetch("/api/github/user", {
+    const res = await fetch("/api/naver/user", {
       method: "post",
       body: JSON.stringify({
         access_token: token,
       }),
     }).then((res) => res.json());
-    setUser(res);
+    setUser(res.response);
   };
 
   return (

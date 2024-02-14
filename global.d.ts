@@ -1,3 +1,12 @@
+namespace NodeJS {
+  interface ProcessEnv {
+    GITHUB_CLIENT_ID: string;
+    GITHUB_CLIENT_SECRETS: string;
+    NAVER_CLIENT_ID: string;
+    NAVER_CLIENT_SECRETS: string;
+  }
+}
+
 interface GitHub_User {
   login: String;
   id: number;
@@ -31,4 +40,15 @@ interface GitHub_User {
   following: number;
   created_at: Date;
   updated_at: Date;
+}
+
+interface NAVER_USER {
+  email: String;
+  nickname: String;
+  profile_image: String;
+  age: String;
+  gender: String;
+  id: String;
+  name: String;
+  birthday: String;
 }
