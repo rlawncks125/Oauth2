@@ -10,32 +10,32 @@ namespace NodeJS {
 }
 
 interface GitHub_User {
-  login: String;
-  id: number;
-  node_id: String;
-  avatar_url: String;
-  gravatar_id: String;
-  url: String;
-  html_url: String;
-  followers_url: String;
-  following_url: String;
-  gists_url: String;
-  starred_url: String;
-  subscriptions_url: String;
-  organizations_url: String;
-  repos_url: String;
-  events_url: String;
-  received_events_url: String;
-  type: String;
+  login: string;
+  id: string;
+  node_id: string;
+  avatar_url: string;
+  gravatar_id: string;
+  url: string;
+  html_url: string;
+  followers_url: string;
+  following_url: string;
+  gists_url: string;
+  starred_url: string;
+  subscriptions_url: string;
+  organizations_url: string;
+  repos_url: string;
+  events_url: string;
+  received_events_url: string;
+  type: string;
   site_admin: boolean;
-  name: String | null;
-  company: String | null;
-  blog: String;
-  location: String | null;
-  email: String | null;
-  hireable: String | null;
-  bio: String | null;
-  twitter_username: String | null;
+  name: string;
+  company: string;
+  blog: string;
+  location: string;
+  email: string;
+  hireable: string;
+  bio: string;
+  twitter_username: string;
   public_repos: number;
   public_gists: number;
   followers: number;
@@ -45,21 +45,21 @@ interface GitHub_User {
 }
 
 interface NAVER_USER {
-  email: String;
-  nickname: String;
-  profile_image: String;
-  age: String;
-  gender: String;
-  id: String;
-  name: String;
-  birthday: String;
+  email: string;
+  nickname: string;
+  profile_image: string;
+  age: string;
+  gender: string;
+  id: string;
+  name: string;
+  birthday: string;
 }
 
 interface GOOGLE_USER {
-  id: String;
-  name: String;
-  given_name: String;
-  family_name: String;
-  picture: String;
-  locale: String;
+  id: string;
+  name: string;
+  given_name: string;
+  family_name: string;
+  picture: string;
+  locale: string;
 }

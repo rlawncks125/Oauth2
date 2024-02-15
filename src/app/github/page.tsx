@@ -1,5 +1,6 @@
 "use client";
 
+import UserCard from "@/components/design/card/UserCard";
 import { useOAuthGitHub } from "@/hooks/useOAuthGitHub";
 import { useEffect } from "react";
 
@@ -17,13 +18,14 @@ export default function page() {
 
         <p>hi main</p>
         <p>asdasd</p>
-        {user &&
-          Object.keys(user).map((key) => (
-            <p key={key}>
-              {/* @ts-ignore */}
-              {key} : {user[key]}
-            </p>
-          ))}
+        {user && (
+          <UserCard
+            email={user.email}
+            imageURL={user.avatar_url}
+            name={user.name}
+            id={user.id}
+          />
+        )}
       </main>
     </>
   );

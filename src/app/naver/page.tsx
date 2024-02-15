@@ -1,5 +1,6 @@
 "use client";
 
+import UserCard from "@/components/design/card/UserCard";
 import { useOAuthNaver } from "@/hooks/useOAuthNaver";
 import { useEffect, useState } from "react";
 
@@ -35,13 +36,14 @@ export default function page() {
           />
         </div>
         <button onClick={onRefreshToken}>refresh</button>
-        {user &&
-          Object.keys(user).map((key) => (
-            <p key={key}>
-              {/* @ts-ignore */}
-              {key} : {user[key]}
-            </p>
-          ))}
+        {user && (
+          <UserCard
+            email={user.email}
+            imageURL={user.profile_image}
+            name={user.name}
+            id={user.id}
+          />
+        )}
       </main>
     </>
   );
