@@ -73,7 +73,6 @@ export const useOAuthNaver = () => {
     return () => window.removeEventListener("message", handlerDone);
   }, []);
 
-  // 서버에서 관리해야함
   const refresh = (refresh_token: String) => {
     fetch("/api/naver/refresh", {
       method: "post",
@@ -91,7 +90,6 @@ export const useOAuthNaver = () => {
     accessToken,
     getMe,
     user,
-    // 서버에서 관리
     refresh,
   };
 };

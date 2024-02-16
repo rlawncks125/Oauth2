@@ -20,6 +20,7 @@ export default function page() {
         <p>asdasd</p>
         {user && (
           <UserCard
+            className="bg-gray-400"
             email={user.email}
             imageURL={user.avatar_url}
             name={user.name}

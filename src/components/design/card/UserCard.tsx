@@ -5,15 +5,21 @@ export default function UserCard({
   name,
   email,
   id,
+  className,
 }: {
   imageURL?: string;
   name?: string;
   email?: string;
   id?: string;
+  className?: string;
 }) {
   return (
     <div className="flex flex-col items-center  ">
-      <div className=" flex flex-col items-center p-4 px-8 border rounded-lg">
+      <div
+        className={`${
+          className || ""
+        } flex flex-col items-center p-4 px-8 border rounded-lg bg-opacity-80`}
+      >
         <img
           className="w-24 h-24 mb-3 rounded-full shadow-lg"
           src={
@@ -28,9 +34,9 @@ export default function UserCard({
         <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
           {name || "비공개"}
         </h5>
-        <span className="text-sm text-gray-500 dark:text-gray-400">
+        <div className="text-sm text-gray-500 dark:text-gray-400">
           {email || "비공개 "}
-        </span>
+        </div>
       </div>
     </div>
   );
