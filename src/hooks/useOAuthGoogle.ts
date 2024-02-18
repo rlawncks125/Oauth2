@@ -8,8 +8,8 @@ export const useOAuthGoogle = () => {
   const [user, setUser] = useState<GOOGLE_USER>();
 
   // 권한 동의
-  const authorize = () => {
-    fetch("/api/google", {
+  const authorize = (grant_type: "code" | "token" = "code") => {
+    fetch(`/api/google/auth/${grant_type}`, {
       method: "GET",
     })
       .then((res) => res.json())

@@ -8,7 +8,6 @@ export async function POST(request: Request) {
   const config = {
     client_id: process.env.NAVER_CLIENT_ID,
     client_secret: process.env.NAVER_CLIENT_SECRETS,
-    redirect_uri: "http://localhost:3000/naver/callback",
     grant_type: "authorization_code",
     code,
   };

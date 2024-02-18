@@ -10,7 +10,7 @@ export const useOAuthGitHub = () => {
 
   // 권한 동의
   const authorize = () => {
-    fetch("/api/github", {
+    fetch("/api/github/auth", {
       method: "GET",
     })
       .then((res) => res.json())
