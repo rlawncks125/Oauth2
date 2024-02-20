@@ -21,8 +21,8 @@ export default function Home() {
       <div className="flex justify-start p-4">
         <UserCard className="bg-green-400" />
       </div>
-      <div className="flex flex-col items-start p-2">
-        <OAuthGoogleButton onClick={() => googleAuthorize()} />
+      <div className="flex justify-start p-2">
+        <OAuthGoogleButton onClick={() => googleAuthorize("token")} />
         {googleUser && (
           <UserCard
             className="bg-[#3B82F6]"

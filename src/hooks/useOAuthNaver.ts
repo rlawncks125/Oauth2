@@ -9,7 +9,7 @@ export const useOAuthNaver = () => {
 
   // 권한 동의
   const authorize = () => {
-    fetch("/api/naver", {
+    fetch("/api/naver/auth", {
       method: "GET",
     })
       .then((res) => res.json())

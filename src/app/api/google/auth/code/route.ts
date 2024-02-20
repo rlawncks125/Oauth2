@@ -1,4 +1,4 @@
-// 참고 https://developers.google.com/identity/protocols/oauth2/javascript-implicit-flow?hl=ko#handlingresponse
+// 참고 https://developers.google.com/identity/protocols/oauth2/web-server?hl=ko
 // scope 주소 https://developers.google.com/identity/protocols/oauth2/scopes?hl=ko
 
 // accessToken 요청할 url 정보 https://developers.google.com/oauthplayground/

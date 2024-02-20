@@ -15,6 +15,18 @@ export default function page() {
 
   useEffect(() => {
     console.log(searchParms.get("code"));
+
+    const access_token = new URLSearchParams(
+      window.location.hash.substr(1)
+    ).get("access_token");
+
+    console.log(
+      new URLSearchParams(window.location.hash.substr(1)).get("access_token")
+    );
+
+    if (access_token) {
+      setToken(access_token);
+    }
   }, []);
 
   const getAcessToken = async () => {
