@@ -34,7 +34,7 @@ export default function page() {
     <div>
       <div className="border my-2">
         <h1>1.</h1>
-        <p>code : {searchParms.get("code")}</p>
+        <p>Authorization Code : {searchParms.get("code")}</p>
       </div>
       <div className="border my-2">
         <h1>2.</h1>
@@ -44,7 +44,7 @@ export default function page() {
         >
           acess_token get
         </button>
-        <div className="felx flex justify-start gap-2">
+        <div className="felx flex-col justify-start gap-2">
           <p>acess_token : </p>
           <p>{token}</p>
         </div>
@@ -74,7 +74,7 @@ export default function page() {
                     </td>
                     <td className="px-6 py-3">
                       {/* @ts-ignore */}
-                      {userInfo[key]}
+                      {userInfo[key] || ""}
                     </td>
                   </tr>
                 ))}

@@ -42,6 +42,9 @@ interface GitHub_User {
   following: number;
   created_at: Date;
   updated_at: Date;
+  private_gists: number;
+  total_private_repos: number;
+  owned_private_repos: number;
 }
 
 interface NAVER_USER {

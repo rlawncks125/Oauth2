@@ -18,7 +18,7 @@ export default function UserCard({
       <div
         className={`${
           className || ""
-        } flex flex-col items-center p-4 px-8 border rounded-lg bg-opacity-80`}
+        } flex flex-col items-center p-8 px-8 border rounded-lg bg-opacity-80 min-w-64 min-h-64`}
       >
         <img
           className="w-24 h-24 mb-3 rounded-full shadow-lg"

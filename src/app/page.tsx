@@ -21,7 +21,7 @@ export default function Home() {
       <div className="flex justify-start p-4">
         <UserCard className="bg-green-400" />
       </div>
-      <div className="flex justify-start p-2">
+      <div className="flex flex-col items-start p-2">
         <OAuthGoogleButton onClick={() => googleAuthorize()} />
         {googleUser && (
           <UserCard
@@ -32,7 +32,7 @@ export default function Home() {
           />
         )}
       </div>
-      <div className="flex justify-start p-2">
+      <div className="flex flex-col items-start p-2">
         <OAuthGitHoubButton onClick={() => githubAuthorize()} />
         {githubUser && (
           <UserCard
@@ -45,7 +45,7 @@ export default function Home() {
         )}
       </div>
 
-      <div className="flex justify-start p-2">
+      <div className="flex flex-col items-start p-2">
         <OAuthNaverButton onClick={() => naverAuthorize()} />
         {naveruser && (
           <UserCard

@@ -1,10 +1,11 @@
+// https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps
+
 import { convterObjectToArray } from "@/utils/convter";
-import { URLSearchParams } from "url";
 
 export async function GET(request: Request) {
   const config = {
     client_id: process.env.GITHUB_CLIENT_ID,
-    scoper: "read:user user:email",
+    scope: "user:email",
   };
 
   const url = new URL("https://github.com/login/oauth/authorize");

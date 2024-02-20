@@ -23,7 +23,7 @@ export default function page() {
             className="bg-gray-400"
             email={user.email}
             imageURL={user.avatar_url}
-            name={user.name}
+            name={user.login}
             id={user.id}
           />
         )}
