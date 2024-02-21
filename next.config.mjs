@@ -9,6 +9,9 @@ const nextConfig = {
     ];
   },
   trailingSlash: true,
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  },
 };
 
 export default nextConfig;
