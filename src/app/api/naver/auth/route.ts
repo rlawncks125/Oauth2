@@ -5,7 +5,7 @@ import { convterObjectToArray } from "@/utils/convter";
 export async function GET(request: Request) {
   const config = {
     client_id: process.env.NAVER_CLIENT_ID,
-    redirect_uri: "http://localhost:3000/naver/callback",
+    redirect_uri: "https://oauth2-ten.vercel.app/naver/callback",
     response_type: "code",
     auth_type: "reprompt", // "reprompt" 재동의 요청 "reauthenticate" 재인증 요청
 

@@ -10,7 +10,7 @@ export async function POST(request: Request) {
     client_secret: process.env.GOOGLE_CLIENT_SECRETS,
     code,
     grant_type: "authorization_code",
-    redirect_uri: "http://localhost:3000/google/callback",
+    redirect_uri: "https://oauth2-ten.vercel.app/google/callback",
   };
 
   const res = await fetch(url, {

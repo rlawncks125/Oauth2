@@ -9,7 +9,7 @@ import { convterObjectToArray } from "@/utils/convter";
 export async function GET(request: Request) {
   const config = {
     client_id: process.env.GOOGLE_CLIENT_ID,
-    redirect_uri: "http://localhost:3000/google/callback",
+    redirect_uri: "https://oauth2-ten.vercel.app/google/callback",
     response_type: "code",
     scope: "https://www.googleapis.com/auth/userinfo.profile",
     access_type: "offline",
